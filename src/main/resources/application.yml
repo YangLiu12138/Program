@@ -1,0 +1,40 @@
+aes:
+  pwd: woyidinghuifacai
+appium:
+  appActivity: com.disney.wdpro.park.activities.SplashActivity
+  appPackage: com.disney.shanghaidisneyland_goo
+  deviceName: 127.0.0.1:16384
+  httpHost: http://127.0.0.1:4723/wd/hub
+  noSign: true
+  platformName: Android
+  platformVersion: 12
+  unicodeKeyboard: true
+chrome:
+  driver: F:anzhuosdkchromedriver-win64chromedriver-win64chromedriver.exe
+  parhUrl: https://www.shanghai-parking.com/CheKuNavigation/parkingCar.html
+  path: F:anzhuosdkchrome-win64chrome-win64chrome.exe
+gd:
+  city: 310115
+  key: 3dc0371021077b450e6c53702e04ea78
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*Mapper.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 15423
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: XLB123456789~
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://139.224.61.92:3306/wx?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+weather:
+  key: 6ef6273177834b489ccf498f94d2a053
+wx:
+  miniapp:
+    appid: wx99d618e371cb5db7
+    appsecret: 08033dbb5d053550658eedb5e5ee8085

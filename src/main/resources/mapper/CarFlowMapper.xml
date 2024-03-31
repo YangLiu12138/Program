@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mydisney.mapper.CarParkFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mydisney.entity.CarParkFlowEntity">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="flow" property="flow"/>
+        <result column="time" property="time"/>
+        <result column="date" property="date"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , name, flow, time,date
+    </sql>
+
+    <select id="count" resultType="int">
+        select count(1) as count
+        from parkflow
+        where date = #{date}
+          and name = #{name}
+    </select>
+
+    <update id="update">
+        UPDATE parkflow
+        <set>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="flow != null">
+                `flow` = #{flow},
+            </if>
+            <if test="time != null">
+                `time` = #{time},
+            </if>
+        </set>
+        WHERE date = #{date} and name = #{name}
+    </update>
+
+    <insert id="insert">
+
+        INSERT
+        IGNORE INTO parkflow
+            (
+            id, name, flow, time,date
+            )
+            values
+            (
+        #{id},
+        #{name},
+        #{flow},
+        #{time},
+        #{date}
+        )
+    </insert>
+
+    <select id="queryByDate" resultType="com.example.mydisney.entity.CarParkFlowEntity">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        parkflow
+        where date = #{date}
+    </select>
+</mapper>

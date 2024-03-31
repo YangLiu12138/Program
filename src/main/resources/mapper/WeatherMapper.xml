@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mydisney.mapper.WeatherMapper">
+    <select id="queryByDate" resultType="com.example.mydisney.entity.Weather">
+        SELECT
+            id,
+            province,
+            city,
+            adcode,
+            weather,
+            temperature,
+            winddirection,
+            windpower,
+            dayweather,
+            nightweather,
+            daytemp,
+            nighttemp,
+            daywind,
+            nightwind,
+            date,
+            isnow,
+            daypower,
+            nightpower,
+            icon,
+            week
+        FROM
+            weather
+        WHERE date BETWEEN #{beginDate} AND #{endDate} and isnow = '0'
+    </select>
+
+    <insert id="updateWeather" parameterType="com.example.mydisney.entity.Weather">
+        insert into weather (
+            province,
+            city,
+            adcode,
+            weather,
+            temperature,
+            winddirection,
+            windpower,
+            dayweather,
+            nightweather,
+            daytemp,
+            nighttemp,
+            daywind,
+            nightwind,
+            date,
+            isnow,
+            daypower,
+            nightpower,
+            icon,
+            week
+        )
+            values
+                (
+                    #{province},
+                    #{city},
+                    #{adcode},
+                    #{weather},
+                    #{temperature},
+                    #{winddirection},
+                    #{windpower},
+                    #{dayweather},
+                    #{nightweather},
+                    #{daytemp},
+                    #{nighttemp},
+                    #{daywind},
+                    #{nightwind},
+                    #{date},
+                    #{isnow},
+                    #{daypower},
+                    #{nightpower},
+                    #{icon},
+                    #{week}
+                )
+    </insert>
+
+    <select id="queryByName" resultType="com.example.mydisney.entity.Weather">
+        select * from userLogin where username = #{username}
+    </select>
+
+
+    <select id="queryFutureWeather" resultType="com.example.mydisney.entity.Weather">
+        SELECT
+            id,
+            province,
+            city,
+            adcode,
+            weather,
+            temperature,
+            winddirection,
+            windpower,
+            dayweather,
+            nightweather,
+            daytemp,
+            nighttemp,
+            daywind,
+            nightwind,
+            date,
+            isnow,
+            daypower,
+            nightpower,
+            icon,
+            week
+        FROM
+            weather
+        WHERE date BETWEEN #{beginDate} AND #{endDate}
+    </select>
+
+
+    <select id="queryByIsnow" resultType="com.example.mydisney.entity.Weather">
+        SELECT
+            id,
+            province,
+            city,
+            adcode,
+            weather,
+            temperature,
+            winddirection,
+            windpower,
+            dayweather,
+            nightweather,
+            daytemp,
+            nighttemp,
+            daywind,
+            nightwind,
+            date,
+            isnow,
+            daypower,
+            nightpower,
+            icon,
+            week
+        FROM
+            weather
+        where
+            date = #{beginDate}
+        and
+            isnow = '1'
+    </select>
+
+    <delete id="DeleteIsnow">
+        delete from weather
+               where
+            date = #{beginDate}
+                and
+            isnow = '1'
+    </delete>
+
+    <delete id="deleteByDate">
+        delete from weather
+        WHERE date BETWEEN #{beginDate} AND #{endDate} and isnow = '0'
+    </delete>
+
+</mapper>
