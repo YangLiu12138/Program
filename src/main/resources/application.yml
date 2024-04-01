@@ -1,3 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://139.224.61.92:3306/wx?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: XLB123456789~
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*Mapper.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 15423
+
+weather:
+  key: 6ef6273177834b489ccf498f94d2a053
+wx:
+  miniapp:
+    appid: wx99d618e371cb5db7
+    appsecret: 08033dbb5d053550658eedb5e5ee8085
 aes:
   pwd: woyidinghuifacai
 appium:
@@ -16,25 +39,3 @@ chrome:
 gd:
   city: 310115
   key: 3dc0371021077b450e6c53702e04ea78
-mybatis:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:mapper/*Mapper.xml
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-server:
-  port: 15423
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: XLB123456789~
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://139.224.61.92:3306/wx?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-weather:
-  key: 6ef6273177834b489ccf498f94d2a053
-wx:
-  miniapp:
-    appid: wx99d618e371cb5db7
-    appsecret: 08033dbb5d053550658eedb5e5ee8085
